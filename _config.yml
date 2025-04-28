@@ -1,0 +1,10 @@
+title: "physbuzz.tv"
+url:  "https://physbuzz.tv"         # change in production
+markdown: kramdown
+theme:  null                        # we’ll supply our own CSS
+plugins:
+  - jekyll-feed                     # default /feed.xml  → *all* posts
+feed:
+  path: feed.xml
+  posts_limit: 20
+exclude: [Gemfile, Gemfile.lock, node_modules]

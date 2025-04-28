@@ -1,0 +1,12 @@
+<footer id="pagefooter">
+  Contact:
+  <script language="JavaScript">
+   var user = "dmoore101"; var host = "gmx.com"; var link = user + "@" + host;
+   document.write('<a href="mailto:'+link+'">'+link+'</a>');
+  </script>.
+  Built: <span id="build-date"></span>.
+</footer>
+
+<script>
+  document.getElementById('build-date').textContent = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+</script>

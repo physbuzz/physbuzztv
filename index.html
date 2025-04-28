@@ -1,0 +1,62 @@
+---
+layout: default
+title: "Home"
+---
+
+<!-- ♦♦  Recent Updates  ♦♦ -->
+<section id="updates-feed">
+  <h2>Recent updates</h2>
+  <ul>
+  {% assign recent_small = site.tags['small-update'] | slice: 0, 8 %}
+  {% for p in recent_small %}
+    <li>
+      <span class="update-date">{{ p.date | date: "%b %-d, %Y" }}:</span>
+      <span class="update-content"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></span>
+    </li>
+  {% endfor %}
+  </ul>
+  <a class="view-all-updates" href="{{ '/updates/' | relative_url }}">[All updates]</a>
+  <a class="view-all-updates" href="{{ '/feed-small.xml' | relative_url }}">[RSS]</a>
+</section>
+
+<!-- ♦♦  Your hand-built grid ♦♦ -->
+<div id="main-index" class="pure-g">
+
+  <!-- SICP BOX -->
+  <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 index-section">
+     <h2>SICP Articles</h2>
+     <ul>
+       {% for p in site.tags['sicp-article'] %}
+         <li><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
+       {% endfor %}
+     </ul>
+  </div>
+  <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 index-section">
+     <h2>Another box</h2>
+     <ul>
+       {% for p in site.tags['sicp-article'] %}
+         <li><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
+       {% endfor %}
+     </ul>
+  </div>
+  <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 index-section">
+     <h2>A third box</h2>
+     <ul>
+       {% for p in site.tags['sicp-article'] %}
+         <li><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
+       {% endfor %}
+     </ul>
+  </div>
+
+  <!-- Add other boxes manually the same way … -->
+</div>
+
+<!-- ♦♦  Chronological archive ♦♦ -->
+<hr>
+<h2>All articles</h2>
+<ul>
+{% for p in site.posts %}
+  <li>{{ p.date | date: "%Y-%m-%d" }} — <a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
+{% endfor %}
+</ul>
+

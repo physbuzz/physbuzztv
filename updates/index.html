@@ -1,0 +1,11 @@
+---
+layout: default
+title: "All small updates"
+---
+
+<h1>All small updates</h1>
+<ul>
+{% for p in site.tags['small-update'] %}
+  <li>{{ p.date | date: "%Y-%m-%d" }} — <a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
+{% endfor %}
+</ul>
