@@ -1,0 +1,524 @@
+
+/* MailChimp Form Embed Code - Horizontal Super Slim - 12/16/2015 v10.7
+Adapted from: http://blog.heyimcat.com/universal-signup-form/ */
+
+#mc_embed_signup{ clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+#mc_embed_signup form {
+  text-align:center;
+  padding:10px 0 10px 0;
+}
+
+.mc-field-group {
+  display: inline-block;
+} /* positions input field horizontally */
+
+#mc_embed_signup input.email {
+  font-family:"Open Sans","Helvetica Neue",Arial,Helvetica,Verdana,sans-serif;
+  font-size: 15px;
+  border: 1px solid #ABB0B2;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  color: #343434;
+  background-color: #fff;
+  box-sizing:border-box;
+  height:32px;
+  padding: 0px 0.4em;
+  display: inline-block;
+  margin: 0;
+  width:350px;
+  vertical-align:top;
+}
+
+#mc_embed_signup label {
+  display:block;
+  font-size:16px;
+  padding-bottom:10px;
+  font-weight:bold;
+}
+#mc_embed_signup .clear {
+  display: inline-block;
+} /* positions button horizontally in line with input */
+#mc_embed_signup .button {
+  font-size: 13px;
+  border: none;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  letter-spacing: .03em;
+  color: #fff;
+  background-color: #aaa;
+  box-sizing:border-box;
+  height:32px;
+  line-height:32px;
+  padding:0 18px;
+  display: inline-block;
+  margin: 0;
+  transition: all 0.23s ease-in-out 0s;
+}
+#mc_embed_signup .button:hover {
+  background-color:#777;
+  cursor:pointer;
+}
+#mc_embed_signup div#mce-responses {
+  float:left;
+  top:-1.4em;
+  padding:0em .5em 0em .5em;
+  overflow:hidden;
+  width:90%;
+  margin: 0 5%;
+  clear: both;
+}
+#mc_embed_signup div.response {
+  margin:1em 0;
+  padding:1em .5em .5em 0;
+  font-weight:bold;
+  float:left;
+  top:-1.5em;
+  z-index:1;
+  width:80%;
+}
+#mc_embed_signup #mce-error-response {
+  display:none;
+}
+#mc_embed_signup #mce-success-response {
+  color:#529214;
+  display:none;
+}
+#mc_embed_signup label.error {
+  display:block;
+  float:none;
+  width:auto;
+  margin-left:1.05em;
+  text-align:left;
+  padding:.5em 0;
+}
+@media (max-width: 768px) {
+  #mc_embed_signup input.email {
+    width:100%;
+    margin-bottom:5px;
+  }
+  #mc_embed_signup .clear {
+    display: block;
+  width: 100% }
+  #mc_embed_signup .button {
+    width: 100%;
+    margin:0;
+  }
+}
+.print-thumbnail {
+  width:300px;
+  height:300px;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:5px;
+  margin-bottom:5px;
+  padding:0;
+position: relative;
+    display: block;
+    box-sizing: border-box;
+}
+
+.print-thumbnail-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    display: block;
+    padding: 10px;
+    color: #4b4f59;
+    background-color: rgba(242,242,246,0.85);
+    font-size: 18px;
+}
+.thumbnail-holder:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: none;
+  transition: all .2s ease;
+}
+.thumbnail-holder:hover:before { 
+  background: rgba(100,100,100, 0.3);
+}
+
+body {
+  background-color:#000;
+  background-repeat:repeat-x;
+  background-image: url(../img/homepage-background.png);
+  background-position:top;
+  color:#eee;
+  font-size:16px;
+
+}
+#mailinglist {
+  background:#005582ad;
+}
+#contentlist {
+  padding-top:50px;
+  padding-bottom:50px;
+  margin-left:auto;
+  margin-right:auto;
+  max-width:620px;
+}
+
+
+/* =============================================
+ * ==================Header Styles==============
+ * ============================================= */
+
+header {
+  margin-left:auto;
+  margin-right:auto;
+  padding:10px 10px 10px 10px;
+  max-width:800px;
+
+}
+header h1 {
+  font-size:20pt;
+  color:#FFF;
+  font-weight:lighter;
+
+}
+header a{
+  text-decoration: none;
+
+}
+header a .logo{
+  transition: color 0.2s ease-out;
+
+}
+header a:hover .logo{
+  color:cyan;
+
+}
+
+.logo-io {
+  background: linear-gradient(to right, cyan, violet);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: lighter;
+  margin-top: 0;
+  position: relative;
+  display:inline-block;
+  text-transform:uppercase;
+
+}
+
+/* =============================================
+ * =================== Subheader ===============
+ * ============================================= */
+
+.sublogo-container {
+  width:100%;
+  background:#000;
+
+}
+.contentbox {
+  margin-left:auto;
+  margin-right:auto;
+  padding:0 0 20px 0;
+  max-width:800px;
+
+}
+.tagline {
+  color:#eee;
+
+}
+.sublogo {
+  padding:20px 20px 20px 20px;
+  margin: 0;
+  color:#FFF;
+  font-weight:500;
+
+  font-size:2em;
+  text-align:center;
+  font-family:Arial; /*lato,helvetica neue,Helvetica,Arial,sans-serif;*/
+  letter-spacing:2px;
+
+}
+
+
+
+.pure-img-responsive {
+  max-width: 100%;
+  height: auto;
+
+}
+
+/*
+Add transition to containers so they can push in and out.
+ */
+#layout,
+#menu,
+.menu-link {
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+
+}
+
+/*
+This is the parent `<div>` that contains the menu and the content area.
+ */
+#layout {
+  position: relative;
+  left: 0;
+  padding-left: 0;
+
+}
+#layout.active #menu {
+  left: 150px;
+  width: 150px;
+
+}
+
+#layout.active .menu-link {
+  left: 150px;
+
+}
+/*
+The content `<div>` is where all your content goes.
+ */
+.content {
+  margin: 0 auto;
+  padding: 0 2em;
+  max-width: 800px;
+  margin-bottom: 50px;
+  line-height: 1.6em;
+
+}
+
+.header {
+  margin: 0;
+  color: #333;
+  text-align: center;
+  padding: 2.5em 2em 0;
+  border-bottom: 1px solid #eee;
+
+}
+.header h1 {
+  margin: 0.2em 0;
+  font-size: 3em;
+  font-weight: 300;
+
+}
+.header h2 {
+  font-weight: 300;
+  color: #ccc;
+  padding: 0;
+  margin-top: 0;
+
+}
+
+.content-subhead {
+  margin: 50px 0 20px 0;
+  font-weight: 300;
+  color: #888;
+
+}
+
+
+
+/*
+The `#menu` `<div>` is the parent `<div>` that contains the `.pure-menu` that
+appears on the left side of the page.
+ */
+
+#menu {
+  margin-left: -150px; /* "#menu" width */
+  width: 150px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1000; /* so the menu or its navicon stays above all content */
+  background: #191818;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+}
+/*
+All anchors inside the menu should be styled like this.
+ */
+#menu a {
+  color: #999;
+  border: none;
+  padding: 0.6em 0 0.6em 0.6em;
+
+}
+
+/*
+Remove all background/borders, since we are applying them to #menu.
+ */
+#menu .pure-menu,
+#menu .pure-menu ul {
+  border: none;
+  background: transparent;
+
+}
+
+/*
+Add that light border to separate items into groups.
+ */
+#menu .pure-menu ul,
+#menu .pure-menu .menu-item-divided {
+  border-top: 1px solid #333;
+
+}
+/*
+Change color of the anchor links on hover/focus.
+ */
+#menu .pure-menu li a:hover,
+#menu .pure-menu li a:focus {
+  background: #333;
+
+}
+
+/*
+This styles the selected menu item `<li>`.
+ */
+#menu .pure-menu-selected,
+#menu .pure-menu-heading {
+  background: #1f8dd6;
+
+}
+/*
+This styles a link within a selected menu item `<li>`.
+ */
+#menu .pure-menu-selected a {
+  color: #fff;
+
+}
+
+/*
+This styles the menu heading.
+ */
+#menu .pure-menu-heading {
+  font-size: 110%;
+  color: #fff;
+  margin: 0;
+
+}
+
+/* -- Dynamic Button For Responsive Menu -------------------------------------*/
+
+/*
+The button to open/close the Menu is custom-made and not part of Pure. Here's
+how it works:
+ */
+
+/*
+`.menu-link` represents the responsive menu toggle that shows/hides on
+small screens.
+ */
+.menu-link {
+  position: fixed;
+  display: block; /* show this only on small screens */
+  top: 0;
+  left: 0; /* "#menu width" */
+  background: #000;
+  background: rgba(0,0,0,0.7);
+  font-size: 10px; /* change this value to increase/decrease button size */
+  z-index: 10;
+  width: 2em;
+  height: auto;
+  padding: 2.1em 1.6em;
+
+}
+
+.menu-link:hover,
+.menu-link:focus {
+  background: #000;
+
+}
+
+.menu-link span {
+  position: relative;
+  display: block;
+
+}
+
+.menu-link span,
+.menu-link span:before,
+.menu-link span:after {
+  background-color: #fff;
+  width: 100%;
+  height: 0.2em;
+
+}
+
+.menu-link span:before,
+.menu-link span:after {
+  position: absolute;
+  margin-top: -0.6em;
+  content: " ";
+
+}
+
+.menu-link span:after {
+  margin-top: 0.6em;
+
+}
+
+
+/* -- Responsive Styles (Media Queries) ------------------------------------- */
+
+/*
+Hides the menu at `48em`, but modify this based on your app's needs.
+ */
+@media (min-width: 48em) {
+
+
+  .header,
+  .content {
+    padding-left: 2em;
+    padding-right: 2em;
+
+  }
+
+  #layout {
+    /*padding-left: 150px; /* left col width "#menu" */
+    left: 0;
+
+  }
+  #menu {
+    left: 150px;
+
+  }
+
+  .menu-link {
+    position: fixed;
+    left: 150px;
+    display: none;
+
+  }
+
+  #layout.active .menu-link {
+    left: 150px;
+
+  }
+
+}
+
+@media (max-width: 48em) {
+  /* Only apply this when the window is small. Otherwise, the following
+  case results in extra padding on the left:
+   * Make the window small.
+   * Tap the menu to trigger the active state.
+   * Make the window large again.
+   */
+#layout.active {
+  position: relative;
+  left: 150px;
+
+}
+
+}

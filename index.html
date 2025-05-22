@@ -1,10 +1,9 @@
 ---
-layout: default
+layout: homepage
 title: "Home"
 ---
 
-<!-- ♦♦  Recent Updates  ♦♦ -->
-<section id="updates-feed">
+<div id="updates-feed">
   <h2>Recent updates</h2>
   <ul>
   {% assign recent_small = site.tags['small-update'] | slice: 0, 8 %}
@@ -15,14 +14,108 @@ title: "Home"
     </li>
   {% endfor %}
   </ul>
-  <a class="view-all-updates" href="{{ '/updates/' | relative_url }}">[All updates]</a>
-  <a class="view-all-updates" href="{{ '/feed-small.xml' | relative_url }}">[RSS]</a>
-</section>
+  <!-- <a class="view-all-updates" href="{{ '/updates/' | relative_url }}">[All updates]</a>
+  <a class="view-all-updates" href="{{ '/feed-small.xml' | relative_url }}">[RSS]</a> -->
+</div>
 
-<!-- ♦♦  Your hand-built grid ♦♦ -->
 <div id="main-index" class="pure-g">
 
+        <!-- Column 1 -->
+        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
+            <div class="index-section">
+              <h2>Comp Sci: SICP (WIP)</h2>
+              <ul>
+                  <li><a href="#">Ch 1: Building Abstractions with Procedures</a></li>
+                  <li><a href="#">Ch 2: Building Abstractions with Data (Focus)</a></li>
+                  <li><a href="#">Ch 3: Modularity, Objects, State</a></li>
+                  <li><a href="#">Ch 4: Metalinguistic Abstraction</a></li>
+                  <li><a href="#">Ch 5: Computing with Register Machines</a></li>
+              </ul>
+              <h3>SICP Bonus / Explorations</h3>
+              <ul>
+                  <li><a href="#">Asymptotic approximations (O, Θ, Ω)</a></li>
+                  <li><a href="#">Santa Barbara Monte Carlo machine</a></li>
+                  <li><a href="#">Runtime of count-change</a></li>
+                  <li><a href="#">RSA implementation details</a></li>
+                  <li><a href="#">Linear diophantine equations</a></li>
+                  <li><a href="#">Bonus number theory</a></li>
+                  <li><a href="#">Bonus special numbers</a></li>
+                  <li><a href="#">Numerical approximations</a></li>
+                  <li><a href="#">Improving convergence rates</a></li>
+              </ul>
+            </div>
+
+             <div class="index-section">
+                <h2>Planned Studies</h2>
+                <ul>
+                  <li><a href="#">Computer Science: Knuth TAOCP</a></li>
+                  <li><a href="#">Advanced Stat Phys Topics</a></li>
+                  <li><a href="#">Adv Computational Physics</a></li>
+                </ul>
+             </div>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
+            <div class="index-section">
+              <h2>Stat Phys: L&L Vol. 5 (WIP)</h2>
+              <ul>
+                <li><a href="#">Review Undergrad Notes</a></li>
+                <li><a href="#">Ch I: Fundamental Principles (Focus)</a></li>
+                <li><a href="#">Ch II: Thermodynamic Quantities</a></li>
+                <li><a href="#">Ch III: Gibbs Distribution</a></li>
+                <li><a href="#">... (Remaining Chapters) ...</a></li>
+                <li><a href="#">Problem Sets & Solutions</a></li>
+                <li><a href="#">Comparison: Reif, Pathria, Peliti</a></li>
+              </ul>
+            </div>
+
+            <div class="index-section">
+              <h2>Discrete Optimization (WIP)</h2>
+              <ul>
+                  <li><a href="#">Week 1: Intro & Basics</a></li>
+                  <li><a href="#">Week 2: Knapsack</a></li>
+                  <li><a href="#">Week 3: Graph Algorithms (Focus)</a></li>
+                  <li><a href="#">... (Remaining Weeks) ...</a></li>
+                  <li><a href="#">Original Problems & Solutions</a></li>
+              </ul>
+            </div>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
+             <div class="index-section">
+              <h2>Simulations & Comp Methods</h2>
+               <ul>
+                <li><a href="#">Billiards: Measuring Irreversibility</a></li>
+                <li><a href="#">Billiards: Stirling Engine Sim</a></li>
+                <li><a href="#">SPH: Non-Ideal Gas Sim</a></li>
+                <li><a href="#">SPH: Navier-Stokes Notes</a></li>
+                <li><a href="/2024/04/21/waveequationint.html">Generic Wave Eq Integrator</a></li>
+                <li><a href="/2024/04/04/waveequationsubtle.html">Wave Eq Subtlety Notes</a></li>
+                <li><a href="/2016/02/16/quadtree.html">Barnes Hut Gravity Notes</a></li>
+                <li><a href="#">CA: Rule 37R Analysis</a></li>
+                <li><a href="#">Ising Solver (1D Gen)</a></li>
+                <li><a href="#">Ising Solver (2D B&B - WIP)</a></li>
+                <li><a href="#">Ising Solver (2D Huang - Planned)</a></li>
+              </ul>
+            </div>
+
+            <div class="index-section">
+              <h2>Physics Notes & Explorations</h2>
+               <ul>
+                <li><a href="#">Mean Field & Gaussian Fields</a></li>
+                <li><a href="#">Density/Entropy Fluctuations</a></li>
+                <li><a href="/2024/07/21/blackhole-legacy.html">Black Hole Raytracer (Legacy)</a></li>
+                <li><a href="/2016/06/06/polyhedramathematica.html">3D Rotation Groups (Mathematica)</a></li>
+                <li><a href="#">Quantum Transmission Notes</a></li>
+                <li><a href="#">Foundations of Stat Mech</a></li>
+                <li><a href="#">Relativistic Dynamics Examples</a></li>
+              </ul>
+            </div>
+        </div>
   <!-- SICP BOX -->
+  <!--
   <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 index-section">
      <h2>SICP Articles</h2>
      <ul>
@@ -46,12 +139,9 @@ title: "Home"
          <li><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
        {% endfor %}
      </ul>
-  </div>
-
-  <!-- Add other boxes manually the same way … -->
+  </div>-->
 </div>
 
-<!-- ♦♦  Chronological archive ♦♦ -->
 <hr>
 <h2>All articles</h2>
 <ul>

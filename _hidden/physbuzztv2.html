@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>physbuzz.tv - Physics, Code, Exploration</title>
+
+  <meta name="description" content="David's website for physics projects, computational explorations, and learning challenges.">
+  <!-- <link rel="icon" type="image/x-icon" href="/favicon.ico"> -->
+
+  <!-- MathJax -->
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+    }
+  };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+
+  <!-- purecss -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/grids-responsive-min.css">
+
+  <!-- Custom Styles (Balanced) -->
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.5; /* Balanced line height */
+      color: #333;
+      background-color: #fdfdfd;
+      margin: 0;
+      padding: 0;
+      font-size: 15px;
+    }
+
+    #pageheader {
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      padding: 0.8em 1.5em; /* Moderate padding */
+      display: flex;
+      align-items: center;
+      border-bottom: 3px solid #e74c3c;
+    }
+
+    #pageheader .logo-svg {
+        width: 40px;
+        height: 40px;
+        margin-right: 12px;
+    }
+    #pageheader .logo-svg .pb-bg { fill: #ecf0f1; }
+    #pageheader .logo-svg .pb-text { fill: #2c3e50; font-weight: bold; font-size: 28px; font-family: monospace;}
+
+    #pageheader h1.logo {
+      margin: 0;
+      font-size: 2em;
+      font-weight: bold;
+    }
+     #pageheader h1.logo a {
+        color: #ecf0f1;
+        text-decoration: none;
+     }
+    #pageheader h1.logo .logo-tv {
+      color: #e74c3c;
+      font-weight: normal;
+      font-size: 0.85em;
+    }
+
+    #content {
+      max-width: 1200px;
+      margin: 1.5em auto; /* More top/bottom margin */
+      padding: 0 1.5em; /* Moderate side padding */
+    }
+
+    #intro p {
+      font-size: 1.05em;
+      color: #555;
+      margin: 0.8em 0; /* Moderate margin */
+    }
+    a {
+        color: #3498db;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+        color: #2980b9;
+    }
+
+     #updates-feed {
+        margin-bottom: 2em; /* Space below updates */
+    }
+    #updates-feed h2 {
+       color: #16a085;
+       border-bottom: 2px solid #bdc3c7; /* Slightly thicker border */
+       padding-bottom: 0.2em;
+       margin-top: 0.8em;
+       margin-bottom: 0.6em;
+       font-size: 1.4em; /* Slightly larger heading */
+    }
+    #updates-feed ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    #updates-feed li {
+      margin-bottom: 0.5em; /* More space between items */
+      padding-bottom: 0.5em;
+      border-bottom: 1px dashed #ddd; /* Dashed border */
+      font-size: 0.98em;
+    }
+    #updates-feed li:last-child { border-bottom: none; }
+    #updates-feed .update-date {
+        font-weight: bold;
+        color: #444;
+        margin-right: 8px;
+    }
+    #updates-feed .update-content { display: inline; }
+    #updates-feed .view-all-updates {
+        display: inline-block; /* Use inline-block for better spacing */
+        margin: 0.8em 1em 0 0;
+        font-weight: bold;
+        font-size: 0.95em;
+    }
+
+    #live-status-widget {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 0.8em 1.2em; /* Moderate padding */
+      border-radius: 4px;
+      text-align: center;
+      margin-bottom: 2em; /* Space below widget */
+    }
+    #live-status-widget .status-indicator {
+        display: inline-block;
+        width: 10px; /* Slightly smaller indicator */
+        height: 10px;
+        border-radius: 50%;
+        margin-right: 6px;
+        vertical-align: middle;
+    }
+    #live-status-widget .status-live { background-color: #e74c3c; }
+    #live-status-widget .status-offline { background-color: #7f8c8d; }
+    #live-status-widget .status-text { font-weight: bold; font-size: 1em; }
+    #live-status-widget .stream-link {
+        margin-left: 12px;
+        font-weight: bold;
+        color: #e74c3c;
+        font-size: 1em;
+    }
+
+    /* Style for the grid container itself */
+    #main-index .pure-g {
+        margin-left: -1em; /* Offset padding of columns */
+        margin-right: -1em;
+    }
+    /* Style for individual columns */
+    #main-index .pure-u-1-3 { /* Adjust fraction as needed */
+        padding-left: 1em; /* Gutters */
+        padding-right: 1em;
+        box-sizing: border-box; /* Include padding in width */
+    }
+
+    .index-section {
+      margin-bottom: 1.8em; /* Space between sections vertically */
+    }
+    .index-section h2 {
+      color: #2c3e50;
+      border-bottom: 2px solid #bdc3c7; /* Slightly thicker border */
+      padding-bottom: 0.2em;
+      margin-top: 0; /* No margin top if it's the first element in column */
+      margin-bottom: 0.6em;
+      font-size: 1.4em; /* Slightly larger heading */
+    }
+     .index-section:first-child h2 {
+         margin-top: 0; /* Ensure first section in a column has no top margin */
+     }
+    .index-section h3 {
+      color: #555;
+      margin-top: 0.8em;
+      margin-bottom: 0.3em;
+      font-size: 1.15em;
+      font-weight: normal;
+      padding-left: 5px; /* Slight indent */
+    }
+
+    .index-section ul {
+      list-style: none;
+      padding-left: 10px; /* Moderate indent */
+      margin: 0 0 0.8em 0;
+    }
+    .index-section li {
+      margin-bottom: 0.3em; /* Moderate spacing */
+    }
+    .index-section li a {
+        display: block;
+        padding: 2px 0;
+    }
+    .index-section ul ul {
+        padding-left: 15px; /* Further indent nested */
+        margin-top: 0.2em;
+        margin-bottom: 0.4em;
+    }
+
+
+    #pagefooter {
+      text-align: center;
+      margin-top: 3em;
+      padding: 1.2em; /* Moderate padding */
+      background-color: #f8f8f8;
+      color: #777; /* Slightly darker */
+      font-size: 0.9em;
+      border-top: 1px solid #ddd;
+    }
+    #pagefooter a { color: #3498db; }
+    #pagefooter a:hover { color: #2980b9; }
+
+    /* Responsive adjustments */
+    @media (max-width: 992px) { /* Adjust breakpoint for 2 columns */
+         #main-index .pure-u-lg-1-3 { /* Target large screens first */
+            width: 50%; /* Make them 2 columns */
+         }
+    }
+    @media (max-width: 767px) { /* Target small screens */
+        body { font-size: 14px; }
+        #pageheader { padding: 0.6em 1em; }
+        #content { padding: 0 1em; margin: 1em auto; }
+        #updates-feed h2, .index-section h2 { font-size: 1.3em; }
+        #main-index .pure-g { margin-left: 0; margin-right: 0; } /* Remove gutter offsets */
+        #main-index .pure-u-lg-1-3, #main-index .pure-u-md-1-3, #main-index .pure-u-1-3 { /* Stack columns */
+            width: 100%;
+            padding-left: 0; /* Remove gutters */
+            padding-right: 0;
+        }
+        .index-section { margin-bottom: 1.5em; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header id="pageheader">
+  <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="48" fill="#2c3e50" stroke="#ecf0f1" stroke-width="4"/>
+    <rect x="20" y="20" width="60" height="60" class="pb-bg" rx="5"/>
+    <text x="50" y="68" text-anchor="middle" class="pb-text">PB</text>
+  </svg>
+  <h1 class="logo"><a href="/">physbuzz<span class="logo-tv">.tv</span></a></h1>
+</header>
+
+<div id="content">
+
+  <section id="updates-feed">
+      <h2>Recent Updates</h2>
+      <ul>
+          <li>
+              <span class="update-date">Oct 26, 2024:</span>
+              <span class="update-content">4hrs debugging SPH boundary conditions. Progress on non-ideal gas sim. <a href="#">(Notes)</a></span>
+          </li>
+          <li>
+              <span class="update-date">Oct 24, 2024:</span>
+              <span class="update-content">Finished L&L Stat Phys Ch 3. Notes on Gibbs vs Boltzmann entropy.</span>
+          </li>
+          <li>
+              <span class="update-date">Oct 22, 2024:</span>
+              <span class="update-content">SICP exercises 2.50-2.55. <a href="#">(Solutions)</a></span>
+          </li>
+          <li>
+              <span class="update-date">Oct 20, 2024:</span>
+              <span class="update-content">Initial setup of physbuzz.tv site structure.</span>
+          </li>
+          <!-- Add more updates here -->
+      </ul>
+      <a href="#" class="view-all-updates">[All Updates]</a>
+      <a href="#" class="view-all-updates">[RSS]</a>
+  </section>
+
+  <section id="intro">
+    <p>
+      Public lab notebook documenting explorations in physics and computer science. Find code on <a href="https://github.com/physbuzz" target="_blank" rel="noopener noreferrer">GitHub</a>. Contact:
+       <script language="JavaScript">
+        var user = "dmoore101"; var host = "gmx.com"; var link = user + "@" + host;
+        document.write('<a href="mailto:'+link+'">'+link+'</a>');
+       </script>.
+     </p>
+  </section>
+
+  <section id="live-status-widget">
+      <!-- Placeholder: Needs JavaScript later -->
+      <span class="status-indicator status-offline"></span>
+      <span class="status-text">Currently Offline</span>
+      <a href="#" class="stream-link">[Link to Stream]</a>
+  </section>
+
+  <div id="main-index">
+    <div class="pure-g">
+
+        <!-- Column 1 -->
+        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
+            <div class="index-section">
+              <h2>Comp Sci: SICP (WIP)</h2>
+              <ul>
+                  <li><a href="#">Ch 1: Building Abstractions with Procedures</a></li>
+                  <li><a href="#">Ch 2: Building Abstractions with Data (Focus)</a></li>
+                  <li><a href="#">Ch 3: Modularity, Objects, State</a></li>
+                  <li><a href="#">Ch 4: Metalinguistic Abstraction</a></li>
+                  <li><a href="#">Ch 5: Computing with Register Machines</a></li>
+              </ul>
+              <h3>SICP Bonus / Explorations</h3>
+              <ul>
+                  <li><a href="#">Asymptotic approximations (O, Θ, Ω)</a></li>
+                  <li><a href="#">Santa Barbara Monte Carlo machine</a></li>
+                  <li><a href="#">Runtime of count-change</a></li>
+                  <li><a href="#">RSA implementation details</a></li>
+                  <li><a href="#">Linear diophantine equations</a></li>
+                  <li><a href="#">Bonus number theory</a></li>
+                  <li><a href="#">Bonus special numbers</a></li>
+                  <li><a href="#">Numerical approximations</a></li>
+                  <li><a href="#">Improving convergence rates</a></li>
+              </ul>
+            </div>
+
+             <div class="index-section">
+                <h2>Planned Studies</h2>
+                <ul>
+                  <li><a href="#">Computer Science: Knuth TAOCP</a></li>
+                  <li><a href="#">Advanced Stat Phys Topics</a></li>
+                  <li><a href="#">Adv Computational Physics</a></li>
+                </ul>
+             </div>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
+            <div class="index-section">
+              <h2>Stat Phys: L&L Vol. 5 (WIP)</h2>
+              <ul>
+                <li><a href="#">Review Undergrad Notes</a></li>
+                <li><a href="#">Ch I: Fundamental Principles (Focus)</a></li>
+                <li><a href="#">Ch II: Thermodynamic Quantities</a></li>
+                <li><a href="#">Ch III: Gibbs Distribution</a></li>
+                <li><a href="#">... (Remaining Chapters) ...</a></li>
+                <li><a href="#">Problem Sets & Solutions</a></li>
+                <li><a href="#">Comparison: Reif, Pathria, Peliti</a></li>
+              </ul>
+            </div>
+
+            <div class="index-section">
+              <h2>Discrete Optimization (WIP)</h2>
+              <ul>
+                  <li><a href="#">Week 1: Intro & Basics</a></li>
+                  <li><a href="#">Week 2: Knapsack</a></li>
+                  <li><a href="#">Week 3: Graph Algorithms (Focus)</a></li>
+                  <li><a href="#">... (Remaining Weeks) ...</a></li>
+                  <li><a href="#">Original Problems & Solutions</a></li>
+              </ul>
+            </div>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
+             <div class="index-section">
+              <h2>Simulations & Comp Methods</h2>
+               <ul>
+                <li><a href="#">Billiards: Measuring Irreversibility</a></li>
+                <li><a href="#">Billiards: Stirling Engine Sim</a></li>
+                <li><a href="#">SPH: Non-Ideal Gas Sim</a></li>
+                <li><a href="#">SPH: Navier-Stokes Notes</a></li>
+                <li><a href="/2024/04/21/waveequationint.html">Generic Wave Eq Integrator</a></li>
+                <li><a href="/2024/04/04/waveequationsubtle.html">Wave Eq Subtlety Notes</a></li>
+                <li><a href="/2016/02/16/quadtree.html">Barnes Hut Gravity Notes</a></li>
+                <li><a href="#">CA: Rule 37R Analysis</a></li>
+                <li><a href="#">Ising Solver (1D Gen)</a></li>
+                <li><a href="#">Ising Solver (2D B&B - WIP)</a></li>
+                <li><a href="#">Ising Solver (2D Huang - Planned)</a></li>
+              </ul>
+            </div>
+
+            <div class="index-section">
+              <h2>Physics Notes & Explorations</h2>
+               <ul>
+                <li><a href="#">Mean Field & Gaussian Fields</a></li>
+                <li><a href="#">Density/Entropy Fluctuations</a></li>
+                <li><a href="/2024/07/21/blackhole-legacy.html">Black Hole Raytracer (Legacy)</a></li>
+                <li><a href="/2016/06/06/polyhedramathematica.html">3D Rotation Groups (Mathematica)</a></li>
+                <li><a href="#">Quantum Transmission Notes</a></li>
+                <li><a href="#">Foundations of Stat Mech</a></li>
+                <li><a href="#">Relativistic Dynamics Examples</a></li>
+              </ul>
+            </div>
+        </div>
+
+    </div> <!-- end pure-g -->
+  </div> <!-- end main-index -->
+
+</div> <!-- end content -->
+
+<footer id="pagefooter">
+  Contact:
+  <script language="JavaScript">
+   var user = "dmoore101"; var host = "gmx.com"; var link = user + "@" + host;
+   document.write('<a href="mailto:'+link+'">'+link+'</a>');
+  </script>.
+  Built: <span id="build-date"></span>.
+</footer>
+
+<script>
+  document.getElementById('build-date').textContent = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+</script>
+
+</body>
+</html>

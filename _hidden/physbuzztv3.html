@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Home - physbuzz.tv</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="alternate"  type="application/rss+xml" title="All posts" href="/feed.xml">
+  <link rel="alternate"  type="application/rss+xml" title="Articles" href="/feed-articles.xml">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/grids-responsive-min.css">
+  
+  <style>
+    /* General Reset & Base Styles */
+    html {
+      font-size: 100%;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      line-height: 1.6;
+      color: #333333;
+      background-color: #ffffff; /* Fallback if image doesn't load */
+      background-image: url(img/background.png); /* Assuming img folder is relative to index.html */
+      background-repeat: repeat-x;
+      background-position: top center;
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      color: #0076AD; /* A clear, accessible blue */
+      text-decoration: none;
+    }
+    a:hover, a:focus {
+      color: #FF4136; /* Original hover color, for a nice pop */
+      text-decoration: underline;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 0;
+      margin-bottom: 0.5em;
+      font-weight: 600;
+      color: #111; /* Darker for headings */
+    }
+    h1 { font-size: 2.2em; line-height: 1.2; }
+    h2 { font-size: 1.6em; line-height: 1.25; margin-bottom: 0.8em;}
+    h3 { font-size: 1.3em; line-height: 1.3; margin-bottom: 0.6em;}
+
+    ul {
+      padding-left: 20px; /* Default indentation for lists */
+      margin-bottom: 1em;
+    }
+    li {
+      margin-bottom: 0.3em;
+    }
+
+    hr {
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid #cccccc;
+        margin: 2em 0;
+        padding: 0;
+    }
+
+    /* Page Wrapper */
+    #content-homepage {
+      max-width: 1200px;
+      margin: 50px auto 0 auto; /* Top margin allows background image to show */
+      padding: 2em;
+      background: #ffffff;
+      border-top: 5px solid #004494; /* Accent color border */
+      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+      color: #333333; /* Ensure content text is dark */
+    }
+
+    /* Header */
+    #pageheader {
+      margin-bottom: 2.5em;
+      text-align: left; /* Or center, depending on preference */
+    }
+    #pageheader .logo {
+      font-size: 2.5em; /* Increased size */
+      color: #222222;   /* Darker base color */
+      font-weight: 700; /* Bolder */
+      margin: 0;
+      padding: 0;
+      transition: color 0.2s ease-out;
+    }
+    #pageheader a {
+      text-decoration: none;
+    }
+    #pageheader a:hover .logo {
+      color: #004494; /* Accent color on hover */
+    }
+    .logo-tv {
+      background: linear-gradient(to right, #333399, #0066d4); /* Original gradient */
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700; /* Match boldness */
+      display:inline-block;
+    }
+
+    /* Updates Feed */
+    #updates-feed {
+      margin-bottom: 2.5em;
+      padding: 1.5em;
+      background-color: #f8f9fa; /* Light background to distinguish block */
+      border: 1px solid #e0e0e0;
+      border-left: 5px solid #004494; /* Accent left border */
+    }
+    #updates-feed h2 {
+      font-size: 1.4em; /* Slightly smaller than main section titles */
+      color: #004494; /* Accent color */
+      border-bottom: none; /* Remove old border */
+      margin-top: 0;
+      margin-bottom: 0.8em;
+    }
+    #updates-feed ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+    #updates-feed li {
+      margin-bottom: 0.6em;
+      font-size: 0.95em;
+    }
+    .update-date {
+      font-weight: 600; /* Bolder date */
+      color: #444444; /* Darker grey for date */
+      margin-right: 0.5em;
+    }
+    .update-content a {
+      font-weight: 500;
+    }
+    /* .view-all-updates { margin-right: 1em; font-size: 0.9em; } */
+
+    /* Main Index Grid Sections */
+    #main-index {
+      /* PureCSS handles grid */
+    }
+    .index-section {
+      padding: 0 1em 1em 1em; /* Add some padding around content within columns */
+      margin-bottom: 1.5em;
+    }
+    .index-section:first-child {
+        padding-left: 0;
+    }
+    .index-section:last-child {
+        padding-right: 0;
+    }
+    .index-section h2 {
+      font-size: 1.3em;
+      color: #333333;
+      margin-top: 0;
+      margin-bottom: 0.7em;
+      padding-bottom: 0.3em;
+      border-bottom: 2px solid #004494; /* Accent underline */
+    }
+    .index-section h3 {
+      font-size: 1.1em;
+      color: #555555;
+      margin-top: 1.2em;
+      margin-bottom: 0.5em;
+      font-weight: 600;
+    }
+    .index-section ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+    .index-section ul li {
+      margin-bottom: 0.4em;
+      font-size: 0.95em;
+    }
+    .index-section ul li a {
+        /* Uses global link styles */
+    }
+
+    /* All Articles Section */
+    #all-articles-list { /* Added an ID for potential specific styling */
+        margin-top: 2em;
+    }
+    #all-articles-list h2 {
+        font-size: 1.5em;
+        color: #333333;
+        margin-bottom: 0.8em;
+        padding-bottom: 0.3em;
+        border-bottom: 2px solid #004494;
+    }
+    #all-articles-list ul {
+        list-style: none;
+        padding-left: 0;
+    }
+    #all-articles-list li {
+        margin-bottom: 0.5em;
+        font-size: 1em;
+    }
+
+
+    /* Footer */
+    #pagefooter {
+      width:100%; /* Ensure it spans, but max-width is controlled by #content-homepage's parent effectively for centering */
+      margin: 3em auto 50px auto; /* Centered if content-homepage is max-width */
+      padding: 1.5em 2em;
+      max-width:1200px; /* To match content width */
+      background: #f1f1f1; /* Slightly off-white */
+      border-top: 5px solid #004494; /* Consistent accent */
+      color: #444444; /* Darker text for footer */
+      text-align: center;
+      font-size: 0.9em;
+      line-height:1.6em;
+    }
+    #pagefooter a {
+        color: #005A8C; /* Slightly darker blue for footer links */
+    }
+    #pagefooter a:hover {
+        color: #FF4136;
+    }
+
+    /* Responsive adjustments for PureCSS grid columns if needed */
+    /* PureCSS grids-responsive-min.css handles this well, but fine-tuning can go here */
+    @media (max-width: 767px) { /* md breakpoint from purecss */
+        #content-homepage {
+            margin-top: 20px; /* Less top margin on mobile */
+            padding: 1.5em 1em; /* Less padding on mobile */
+        }
+        #pageheader .logo {
+            font-size: 2em;
+        }
+        .index-section {
+          padding-left: 0;
+          padding-right: 0;
+        }
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="content-homepage">
+     <header id="pageheader">
+      <a href="/"><h1 class="logo">physbuzz<span class="logo-tv">.tv</span></h1></a>
+    </header>
+
+     <div id="updates-feed">
+      <h2>Recent updates</h2>
+      <ul>
+        <li>
+          <span class="update-date">Apr 26, 2025:</span>
+          <span class="update-content"><a href="/2025/04/26/test.html">Fixed SPH boundary-condition bug</a></span>
+        </li>
+      </ul>
+      <!-- <a class="view-all-updates" href="/updates/">[All updates]</a>
+      <a class="view-all-updates" href="/feed-small.xml">[RSS]</a> -->
+    </div>
+
+    <div id="main-index" class="pure-g">
+
+        <!-- Column 1 -->
+        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
+            <div class="index-section">
+              <h2>Comp Sci: SICP (WIP)</h2>
+              <ul>
+                  <li><a href="#">Ch 1: Building Abstractions with Procedures</a></li>
+                  <li><a href="#">Ch 2: Building Abstractions with Data (Focus)</a></li>
+                  <li><a href="#">Ch 3: Modularity, Objects, State</a></li>
+                  <li><a href="#">Ch 4: Metalinguistic Abstraction</a></li>
+                  <li><a href="#">Ch 5: Computing with Register Machines</a></li>
+              </ul>
+              <h3>SICP Bonus / Explorations</h3>
+              <ul>
+                  <li><a href="#">Asymptotic approximations (O, Θ, Ω)</a></li>
+                  <li><a href="#">Santa Barbara Monte Carlo machine</a></li>
+                  <li><a href="#">Runtime of count-change</a></li>
+                  <li><a href="#">RSA implementation details</a></li>
+                  <li><a href="#">Linear diophantine equations</a></li>
+                  <li><a href="#">Bonus number theory</a></li>
+                  <li><a href="#">Bonus special numbers</a></li>
+                  <li><a href="#">Numerical approximations</a></li>
+                  <li><a href="#">Improving convergence rates</a></li>
+              </ul>
+            </div>
+
+             <div class="index-section">
+                <h2>Planned Studies</h2>
+                <ul>
+                  <li><a href="#">Computer Science: Knuth TAOCP</a></li>
+                  <li><a href="#">Advanced Stat Phys Topics</a></li>
+                  <li><a href="#">Adv Computational Physics</a></li>
+                </ul>
+             </div>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
+            <div class="index-section">
+              <h2>Stat Phys: L&L Vol. 5 (WIP)</h2>
+              <ul>
+                <li><a href="#">Review Undergrad Notes</a></li>
+                <li><a href="#">Ch I: Fundamental Principles (Focus)</a></li>
+                <li><a href="#">Ch II: Thermodynamic Quantities</a></li>
+                <li><a href="#">Ch III: Gibbs Distribution</a></li>
+                <li><a href="#">... (Remaining Chapters) ...</a></li>
+                <li><a href="#">Problem Sets & Solutions</a></li>
+                <li><a href="#">Comparison: Reif, Pathria, Peliti</a></li>
+              </ul>
+            </div>
+
+            <div class="index-section">
+              <h2>Discrete Optimization (WIP)</h2>
+              <ul>
+                  <li><a href="#">Week 1: Intro & Basics</a></li>
+                  <li><a href="#">Week 2: Knapsack</a></li>
+                  <li><a href="#">Week 3: Graph Algorithms (Focus)</a></li>
+                  <li><a href="#">... (Remaining Weeks) ...</a></li>
+                  <li><a href="#">Original Problems & Solutions</a></li>
+              </ul>
+            </div>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
+             <div class="index-section">
+              <h2>Simulations & Comp Methods</h2>
+               <ul>
+                <li><a href="#">Billiards: Measuring Irreversibility</a></li>
+                <li><a href="#">Billiards: Stirling Engine Sim</a></li>
+                <li><a href="#">SPH: Non-Ideal Gas Sim</a></li>
+                <li><a href="#">SPH: Navier-Stokes Notes</a></li>
+                <li><a href="/2024/04/21/waveequationint.html">Generic Wave Eq Integrator</a></li>
+                <li><a href="/2024/04/04/waveequationsubtle.html">Wave Eq Subtlety Notes</a></li>
+                <li><a href="/2016/02/16/quadtree.html">Barnes Hut Gravity Notes</a></li>
+                <li><a href="#">CA: Rule 37R Analysis</a></li>
+                <li><a href="#">Ising Solver (1D Gen)</a></li>
+                <li><a href="#">Ising Solver (2D B&B - WIP)</a></li>
+                <li><a href="#">Ising Solver (2D Huang - Planned)</a></li>
+              </ul>
+            </div>
+
+            <div class="index-section">
+              <h2>Physics Notes & Explorations</h2>
+               <ul>
+                <li><a href="#">Mean Field & Gaussian Fields</a></li>
+                <li><a href="#">Density/Entropy Fluctuations</a></li>
+                <li><a href="/2024/07/21/blackhole-legacy.html">Black Hole Raytracer (Legacy)</a></li>
+                <li><a href="/2016/06/06/polyhedramathematica.html">3D Rotation Groups (Mathematica)</a></li>
+                <li><a href="#">Quantum Transmission Notes</a></li>
+                <li><a href="#">Foundations of Stat Mech</a></li>
+                <li><a href="#">Relativistic Dynamics Examples</a></li>
+              </ul>
+            </div>
+        </div>
+      <!-- SICP BOX -->
+      <!--
+      <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 index-section">
+         <h2>SICP Articles</h2>
+         <ul>
+           
+             <li><a href="/2025/04/15/lol.html">Asymptotic Approximations in SICP §1.2.5</a></li>
+           
+         </ul>
+      </div>
+      <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 index-section">
+         <h2>Another box</h2>
+         <ul>
+           
+             <li><a href="/2025/04/15/lol.html">Asymptotic Approximations in SICP §1.2.5</a></li>
+           
+         </ul>
+      </div>
+      <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 index-section">
+         <h2>A third box</h2>
+         <ul>
+           
+             <li><a href="/2025/04/15/lol.html">Asymptotic Approximations in SICP §1.2.5</a></li>
+           
+         </ul>
+      </div>-->
+    </div>
+
+    <hr>
+    <div id="all-articles-list">
+        <h2>All articles</h2>
+        <ul>
+          <li>2025-04-26 — <a href="/2025/04/26/test.html">Fixed SPH boundary-condition bug</a></li>
+          <li>2025-04-15 — <a href="/2025/04/15/lol.html">Asymptotic Approximations in SICP §1.2.5</a></li>
+        </ul>
+    </div>
+
+  </div>
+  <footer id="pagefooter" class="footer">
+    Contact me at
+      <script language="JavaScript">
+       <!--
+       var user = "dmoore101"; var host = "gmx.com"; var link = user + "@" + host;
+       document.write('<a href="mailto:'+link+'">'+link+'</a>'); // Added mailto:
+       //-->
+      </script>. Page last built on May 07, 2025 at 17:34.
+  </footer>
+
+</body>
+</html>
